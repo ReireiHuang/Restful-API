@@ -27,14 +27,14 @@ namespace RestfulProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetDept()
         {
-            return await _context.Dept.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> GetUsers(int id)
         {
-            var users = await _context.Dept.FindAsync(id);
+            var users = await _context.Users.FindAsync(id);
 
             if (users == null)
             {
@@ -82,7 +82,7 @@ namespace RestfulProject.Controllers
         [HttpPost]
         public async Task<ActionResult<Users>> PostUsers(Users users)
         {
-            _context.Dept.Add(users);
+            _context.Users.Add(users);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUsers", new { id = users.UserId }, users);
@@ -92,13 +92,13 @@ namespace RestfulProject.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Users>> DeleteUsers(int id)
         {
-            var users = await _context.Dept.FindAsync(id);
+            var users = await _context.Users.FindAsync(id);
             if (users == null)
             {
                 return NotFound();
             }
 
-            _context.Dept.Remove(users);
+            _context.Users.Remove(users);
             await _context.SaveChangesAsync();
 
             return users;
@@ -106,7 +106,7 @@ namespace RestfulProject.Controllers
 
         private bool UsersExists(int id)
         {
-            return _context.Dept.Any(e => e.UserId == id);
+            return _context.Users.Any(e => e.UserId == id);
         }
     }
 }

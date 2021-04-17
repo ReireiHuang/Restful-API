@@ -10,7 +10,7 @@ namespace RestfulProject.Dto
 {
     public class ApplicationDBContext:DbContext
     {
-        public DbSet<Users> Dept { get; set; }
+        public DbSet<Users> Users { get; set; }
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
             
