@@ -7,18 +7,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestfulProject.Model
 {
-    public class UsersModel
+    [Table("Users")]
+    public class Users
     {
-        [Table("Users")]
-        public class Users
-        {
-            [Key]
-            [Required]
-            public int UserId { get; set; }
-            [StringLength(10)]
-            public string UserName { get; set; }
-            [StringLength(10)]
-            public string Character { get; set; }
-        }
+        [Required]
+        [Key]
+        public int UserId { get; set; }
+        [StringLength(10)]
+        public string UserName { get; set; }
+        [StringLength(10)]
+        public string Character { get; set; }
     }
 }

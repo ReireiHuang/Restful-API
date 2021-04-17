@@ -10,10 +10,12 @@ namespace RestfulProject.Dto
 {
     public class ApplicationDBContext:DbContext
     {
-        public DbSet<UsersModel> Users { get; set; }
-        public ApplicationDBContext() : base()
-        { 
-
+        public DbSet<Users> Dept { get; set; }
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
+        {
+            
         }
+        /*protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlite("Data Source=Test.db");*/
     }
 }
